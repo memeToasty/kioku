@@ -15,7 +15,7 @@ func TestRegister(t *testing.T) {
 
 	registerService := handler.New(mockStore, mockLoginService)
 
-	if registerService != nil {
-		t.Errorf("Received inbalid Register Service\n")
+	if registerService == nil {
+		t.Errorf("Received invalid Register Service\n")
 	}
 }
