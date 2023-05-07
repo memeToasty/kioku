@@ -3,11 +3,9 @@ language: go
 go:
  - "1.20"
 
-# addons:
-#   sonarcloud:
-#     organization: "sonarcloud"
-#     token:
-#       secure: ""
+addons:
+  sonarcloud:
+    organization: "memetoasty"
       
 
 env:
@@ -20,7 +18,7 @@ script:
   - cd backend
   - go test -json ./... > report.json
   - go test -coverprofile=coverage.out ./...
-  # - sonar-scanner
+  - sonar-scanner
 
 cache:
   directories:
