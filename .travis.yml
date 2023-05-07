@@ -18,6 +18,7 @@ script:
   - cd backend
   - go test -json ./... > report.json
   - go test -coverprofile=coverage.out ./...
+  - cd ..
   - sonar-scanner
 
 cache:
