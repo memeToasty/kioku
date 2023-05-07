@@ -21,6 +21,7 @@ jobs:
           cd backend
           go test -json ./... > report.json
           go test -coverprofile=coverage.out ./...
+          sed -i 's|github\.com/kioku-project/kioku/|backend/|g' coverage.out
           cd ..
 
       - name: SonarCloud Scan
