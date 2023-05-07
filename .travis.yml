@@ -13,6 +13,9 @@ go:
 env:
   - GOLANG_PROTOBUF_REGISTRATION_CONFLICT=ignore
 
+install: 
+  - make init -f backend/services/register/Makefile
+
 script:
   - cd backend
   - go test -json ./... > report.json
