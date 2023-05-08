@@ -27,6 +27,7 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         with:
           args: >
+            --workdir /github/workspace/backend
             -X
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
