@@ -9,7 +9,7 @@ env:
 
 jobs:
   sonarcloud-backend:
-    name: SonarCloud
+    name: SonarCloud Backend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -31,7 +31,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_BACKEND }}
   sonarcloud-frontend:
-    name: SonarCloud
+    name: SonarCloud Frontend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
