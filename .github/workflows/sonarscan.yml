@@ -8,7 +8,7 @@ env:
   GOLANG_PROTOBUF_REGISTRATION_CONFLICT: ignore
 
 jobs:
-  sonarcloud:
+  sonarcloud-backend:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
@@ -29,4 +29,19 @@ jobs:
             -X
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_BACKEND }}
+  sonarcloud-frontend:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: frontend
+          args: >
+            -X
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONTEND }}
